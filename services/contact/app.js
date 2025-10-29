@@ -18,12 +18,11 @@ async function processMessage(msg) {
             'text': mailData.text,
             'attachments': null
         }
-
-        fs.writeFileSync(`${mailOptions.subject}-${mailOptions.to}.json`, JSON.stringify(mailOptions));
-        
+ 
+        fs.writeFileSync(`${new Date()} - ${mailOptions.subject}.txt`, mailOptions);
+ 
         console.log(`✔ SUCCESS`)
     } catch (error) {
-        console.log(error)
         console.log(`X ERROR TO PROCESS: ${error.response}`)
     }
 }
